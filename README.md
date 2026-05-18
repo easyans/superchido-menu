@@ -2,13 +2,6 @@
 
 A modern, single-page web menu for [SÚPERCHIDO](https://www.superchido.com.au/) — a regional Mexican kitchen and agave bar in Seddon, Melbourne.
 
-## Live Preview
-
-**[➜ Open the menu](https://raw.githack.com/easyans/superchido-menu/main/chido.html)**
-
-> If the link above feels slow on first load, open this faster CDN-cached version instead:
-> [https://rawcdn.githack.com/easyans/superchido-menu/main/chido.html](https://rawcdn.githack.com/easyans/superchido-menu/main/chido.html)
-
 ## What's inside
 
 - **Sticky left-rail navigation** with the SÚPERCHIDO wordmark, all menu sections, opening hours, and Book / Pick Up / Uber Eats CTAs
