@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SÚPERCHIDO · La Carta 2026 — regional Mexican kitchen + agave bar in Seddon. Come for the tacos, stay for the vibes.">
+<title>SÚPERCHIDO — La Carta · Menu</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ===================== BRAND TOKENS ===================== */
+  :root {
+    --pink: #E91E63;
+    --pink-deep: #B7184E;
+    --pink-soft: #FCE4EC;
+    --black: #161616;
+    --ink: #1A1A1A;
+    --grey: #6B6B6B;
+    --grey-2: #8a8a8a;
+    --light: #E8E5E1;
+    --paper: #FFFFFF;
+    --cream: #FAF6F1;
+    --shadow: 0 12px 30px rgba(0,0,0,0.06);
+    --shadow-lg: 0 25px 60px rgba(0,0,0,0.10);
+    --radius: 14px;
+    --radius-sm: 10px;
+    --nav-h: 68px;
+    --bar-h: 60px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + var(--bar-h) + 12px); }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  .container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===================== TOP NAV ===================== */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: saturate(180%) blur(10px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--light);
+  }
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--nav-h);
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .brand-mark {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: var(--black);
+    line-height: 1;
+  }
+  .brand-logo {
+    display: block;
+    height: 32px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    object-position: left center;
+  }
+  .brand-tag {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--pink);
+  }
+
+  .primary-nav {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+  }
+  .primary-nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--grey);
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: color .15s ease, background .15s ease;
+    font-weight: 500;
+  }
+  .primary-nav a:hover { color: var(--black); }
+  .primary-nav a.is-active {
+    color: var(--pink);
+    background: var(--pink-soft);
+  }
+
+  .cta-group { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+    border: 1.5px solid transparent;
+    white-space: nowrap;
+  }
+  .cta:hover { transform: translateY(-1px); }
+  .cta-primary {
+    background: var(--pink);
+    color: #fff;
+    border-color: var(--pink);
+  }
+  .cta-primary:hover { background: var(--pink-deep); border-color: var(--pink-deep); }
+  .cta-secondary {
+    background: transparent;
+    color: var(--black);
+    border-color: var(--black);
+  }
+  .cta-secondary:hover { background: var(--black); color: #fff; }
+  .cta-ghost {
+    background: transparent;
+    color: var(--pink);
+    border-color: var(--pink);
+  }
+  .cta-ghost:hover { background: var(--pink); color: #fff; }
+
+  /* mobile menu */
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+  }
+  .nav-toggle svg { width: 22px; height: 22px; }
+
+  /* ===================== HERO ===================== */
+  .hero {
+    background: linear-gradient(180deg, #fff 0%, var(--cream) 100%);
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--light);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '◆';
+    position: absolute;
+    right: -40px;
+    top: 30px;
+    font-size: 220px;
+    color: var(--pink);
+    opacity: 0.06;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: end;
+  }
+  .hero-kicker {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--pink);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .hero h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(48px, 8vw, 104px);
+    line-height: 0.92;
+    letter-spacing: -2px;
+    color: var(--black);
+    margin: 0 0 18px;
+    text-transform: uppercase;
+  }
+  .hero h1 .accent { color: var(--pink); }
+  .hero p.lede {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(16px, 1.6vw, 20px);
+    color: var(--grey);
+    max-width: 520px;
+    margin: 0 0 28px;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .hero-cta-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .hero-meta {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--grey);
+    text-transform: uppercase;
+    line-height: 1.9;
+  }
+  .hero-meta strong { color: var(--black); font-weight: 500; }
+  .hero-meta .stamp {
+    display: inline-block;
+    border: 1.5px dashed var(--pink);
+    color: var(--pink);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+    font-weight: 500;
+    transform: rotate(2deg);
+  }
+
+  /* ===================== HERO VISUAL (food photo) ===================== */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 24px;
+    overflow: visible;
+    isolation: isolate;
+  }
+  .hero-visual .photo-frame {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+  }
+  .hero-visual img.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .8s ease;
+  }
+  .hero-visual:hover img.hero-image { transform: scale(1.03); }
+
+  .hero-badge {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 1.6px;
+    color: var(--black);
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  }
+  .hero-badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--pink);
+    box-shadow: 0 0 0 4px rgba(233,30,99,0.22);
+    flex-shrink: 0;
+  }
+
+  .hero-sticker {
+    position: absolute;
+    top: -22px;
+    right: -22px;
+    width: 160px;
+    height: 160px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+    transform: rotate(7deg);
+    z-index: 3;
+    transition: transform .3s ease;
+  }
+  .hero-sticker:hover { transform: rotate(2deg) scale(1.03); }
+  .hero-sticker img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+  .hero-sticker .pin {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--pink);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.25), inset 0 -3px 4px rgba(0,0,0,0.2);
+  }
+
+  /* ===================== SECTION BANNER (food banner above section head) ===================== */
+  .section-banner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 24/7;
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .section-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.02);
+  }
+  .section-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(22,22,22,0.62) 0%, rgba(22,22,22,0.25) 45%, rgba(22,22,22,0) 80%);
+  }
+  .section-banner .banner-text {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    z-index: 1;
+    max-width: 60%;
+  }
+  .section-banner .banner-text .kicker {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: clamp(18px, 2vw, 24px);
+    color: var(--pink-soft);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 2px;
+  }
+  .section-banner .banner-text h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3.4vw, 38px);
+    line-height: 1;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .section-banner .banner-text p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    margin: 6px 0 0;
+    max-width: 360px;
+    line-height: 1.45;
+  }
+
+  /* ===================== CLÁSICO PHOTO ===================== */
+  .clasico-photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+  }
+  .clasico-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ===================== FILTER BAR ===================== */
+  .filter-bar {
+    position: sticky;
+    top: var(--nav-h);
+    z-index: 40;
+    background: rgba(250,246,241,0.97);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light);
+  }
+  .filter-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: var(--bar-h);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .filter-row::-webkit-scrollbar { display: none; }
+
+  .search {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .search input {
+    width: 240px;
+    height: 38px;
+    padding: 0 14px 0 36px;
+    border: 1.5px solid var(--light);
+    background: #fff;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--black);
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .search input:focus {
+    outline: none;
+    border-color: var(--pink);
+    box-shadow: 0 0 0 4px rgba(233,30,99,0.10);
+  }
+  .search input::placeholder { color: var(--grey-2); }
+  .search svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: var(--grey);
+  }
+
+  .chips {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .chip {
+    border: 1.5px solid var(--light);
+    background: #fff;
+    color: var(--black);
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: all .15s ease;
+    white-space: nowrap;
+  }
+  .chip:hover { border-color: var(--black); }
+  .chip.is-active {
+    background: var(--black);
+    color: #fff;
+    border-color: var(--black);
+  }
+  .chip.is-active.chip-pink {
+    background: var(--pink);
+    border-color: var(--pink);
+  }
+  .chip-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--light);
+    flex-shrink: 0;
+  }
+
+  /* ===================== MENU SECTIONS ===================== */
+  main { padding: 48px 0 80px; }
+  .menu-section { padding: 36px 0 12px; scroll-margin-top: calc(var(--nav-h) + var(--bar-h) + 12px); }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1.5px solid var(--black);
+  }
+  .section-head .es {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--pink);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    color: var(--black);
+    margin: 0;
+    line-height: 1;
+  }
+  .section-head .inline-note {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--pink);
+    margin-left: auto;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .dish-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 14px;
+  }
+  .dish-grid.compact {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  /* ===================== DISH CARD ===================== */
+  .dish {
+    background: #fff;
+    border: 1px solid var(--light);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    position: relative;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  .dish:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+    border-color: #ddd;
+  }
+  .dish.is-hidden { display: none; }
+  .dish.is-faded { opacity: 0.35; }
+
+  .dish-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .dish-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.1px;
+    color: var(--black);
+    text-transform: uppercase;
+    line-height: 1.3;
+    flex: 1;
+    min-width: 0;
+    word-wrap: break-word;
+  }
+  .dish-price {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--black);
+    letter-spacing: -0.5px;
+    line-height: 1;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .dish-price::before {
+    content: '$';
+    font-size: 13px;
+    vertical-align: top;
+    color: var(--pink);
+    margin-right: 1px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .dish-price.muted {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--grey);
+    text-transform: none;
+  }
+  .dish-price.muted::before { content: ''; }
+  .dish-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13.5px;
+    color: var(--grey);
+    line-height: 1.55;
+    flex: 1;
+  }
+  .dish-foot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    color: var(--pink);
+    border: 1px solid var(--pink);
+    padding: 3px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  /* ===================== MARKERS ===================== */
+  .markers {
+    display: inline-flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .marker {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 3px 7px;
+    border-radius: 999px;
+    line-height: 1;
+  }
+  .marker-crown {
+    background: var(--pink);
+    color: #fff;
+  }
+  .marker-crown::before { content: '♛'; font-size: 11px; }
+  .marker-new {
+    background: #fff;
+    color: var(--pink);
+    border: 1.2px solid var(--pink);
+  }
+  .marker-new::before { content: '✦'; }
+  .marker-diamond {
+    background: var(--pink-soft);
+    color: var(--pink);
+  }
+  .marker-diamond::before { content: '◆'; }
+
+  /* ===================== EL CLÁSICO HERO CARD ===================== */
+  .clasico {
+    background: linear-gradient(135deg, var(--pink-soft) 0%, #fff 60%);
+    border: 2px solid var(--pink);
+    border-radius: 20px;
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .clasico::before {
+    content: '◆  EL CLÁSICO  ◆';
+    position: absolute;
+    top: -10px; left: 28px;
+    background: var(--cream);
+    padding: 0 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--pink);
+    font-weight: 500;
+  }
+  .clasico-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 36px;
+    align-items: center;
+  }
+  .clasico-sub {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--pink);
+    transform: rotate(-1.5deg);
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+  .clasico-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(40px, 6vw, 64px);
+    letter-spacing: -1.5px;
+    color: var(--black);
+    margin: 0 0 14px;
+    text-transform: uppercase;
+    line-height: 0.92;
+  }
+  .clasico-strong {
+    color: var(--pink);
+    margin-bottom: 16px;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  .clasico-includes {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--black);
+    line-height: 1.85;
+    font-weight: 400;
+    margin-bottom: 18px;
+  }
+  .clasico-includes em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+  }
+  .clasico-rule {
+    padding: 14px 16px;
+    border: 1px dashed var(--pink);
+    border-radius: var(--radius-sm);
+    background: rgba(255,255,255,0.6);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--black);
+    line-height: 1.55;
+    font-style: italic;
+  }
+  .clasico-rule strong { color: var(--pink); font-weight: 600; font-style: normal; }
+  .clasico-rule .marker { font-style: normal; vertical-align: middle; }
+  .clasico-price {
+    text-align: center;
+    padding: 24px;
+    background: #fff;
+    border: 2px solid var(--pink);
+    border-radius: var(--radius);
+    box-shadow: 0 14px 40px rgba(233,30,99,0.18);
+  }
+  .clasico-price .num {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 96px;
+    color: var(--black);
+    line-height: 1;
+    letter-spacing: -3px;
+  }
+  .clasico-price .num::before {
+    content: '$';
+    font-size: 36px;
+    vertical-align: top;
+    color: var(--pink);
+    margin-right: 2px;
+    font-weight: 600;
+  }
+  .clasico-price .pp {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: var(--grey);
+    text-transform: uppercase;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+  .clasico-price .min {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--pink);
+    margin-top: 4px;
+  }
+  .clasico-price .tag-line {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--pink);
+    transform: rotate(-1.5deg);
+    margin-top: 14px;
+    display: block;
+  }
+
+  /* ===================== INLINE PILL ROW (Sauces) ===================== */
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .pill {
+    background: #fff;
+    border: 1px solid var(--light);
+    border-radius: var(--radius);
+    padding: 16px 22px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    flex: 1 1 220px;
+    text-align: center;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .pill:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+  /* ===================== EMPTY STATE ===================== */
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--grey);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 18px;
+    display: none;
+  }
+  .empty-state.is-visible { display: block; }
+  .empty-state strong { color: var(--pink); font-style: normal; font-weight: 600; }
+
+  /* ===================== LEGEND ===================== */
+  .legend-section {
+    margin-top: 40px;
+    padding: 28px;
+    background: #fff;
+    border-radius: var(--radius);
+    border: 1px solid var(--light);
+  }
+  .legend-section h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--grey);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 0 0 16px;
+  }
+  .legend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px 24px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--black);
+  }
+  .legend-item .marker, .legend-item .tag { flex-shrink: 0; }
+  .legend-fine {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--light);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--grey);
+    text-transform: uppercase;
+  }
+
+  /* ===================== FOOTER ===================== */
+  .site-footer {
+    background: var(--black);
+    color: #ddd;
+    padding: 64px 0 28px;
+    margin-top: 60px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .footer-brand .mark {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 32px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .footer-brand .tag {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--pink);
+    margin-bottom: 18px;
+  }
+  .footer-brand .ack {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: #888;
+    line-height: 1.6;
+    margin-top: 24px;
+    max-width: 380px;
+  }
+  .footer-col h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--pink);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 0 0 14px;
+  }
+  .footer-col ul { list-style: none; padding: 0; margin: 0; }
+  .footer-col li {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: #ccc;
+    margin-bottom: 6px;
+    line-height: 1.6;
+  }
+  .footer-col a:hover { color: var(--pink); }
+  .footer-col .strong-day { color: #fff; font-weight: 500; }
+
+  .footer-bottom {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #2a2a2a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #777;
+    text-transform: uppercase;
+  }
+  .footer-bottom .vivas {
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    color: var(--pink);
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+
+  /* ===================== BACK TO TOP ===================== */
+  .to-top {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--pink);
+    color: #fff;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(233,30,99,0.35);
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease, background .15s ease;
+    z-index: 60;
+  }
+  .to-top.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .to-top:hover { background: var(--pink-deep); }
+  .to-top svg { width: 18px; height: 18px; }
+
+  /* desktop-only sidebar CTA (hidden by default; shown in sidebar) */
+  .cta-sidebar-only { display: none; }
+  .side-only-hours { display: none; }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 1100px) {
+    .primary-nav { display: none; }
+    .nav-toggle { display: inline-flex; }
+    .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+    .hero-meta { text-align: left; }
+    .clasico-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  /* ===================== DESKTOP — LEFT SIDEBAR LAYOUT ===================== */
+  @media (min-width: 1101px) {
+    :root { --side-w: 248px; --bar-h: 64px; }
+
+    body { padding-left: var(--side-w); }
+    html { scroll-padding-top: calc(var(--bar-h) + 16px); }
+
+    /* turn the site-header into a fixed left rail */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: var(--side-w);
+      height: 100vh;
+      background: #fff;
+      border-bottom: 0;
+      border-right: 1px solid var(--light);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      overflow-y: auto;
+      box-shadow: 1px 0 0 rgba(0,0,0,0.02);
+    }
+    .site-header::-webkit-scrollbar { width: 0; }
+
+    .nav-row {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      height: 100%;
+      gap: 20px;
+      padding: 28px 22px 24px;
+    }
+
+    /* brand stacks vertically at the top */
+    .brand {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--light);
+    }
+    .brand-mark { font-size: 24px; }
+    .brand-logo { height: auto; width: 100%; max-width: 200px; max-height: 60px; }
+    .brand-tag { font-size: 12.5px; line-height: 1.3; }
+
+    /* vertical section nav */
+    .primary-nav {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 1px;
+      width: 100%;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+    .primary-nav a {
+      padding: 11px 14px 11px 18px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      letter-spacing: 1.8px;
+      text-align: left;
+      position: relative;
+    }
+    .primary-nav a:hover { background: #f7f4f0; color: var(--black); }
+    .primary-nav a.is-active {
+      color: var(--pink);
+      background: var(--pink-soft);
+    }
+    .primary-nav a.is-active::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 18px;
+      background: var(--pink);
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* sidebar hours block (only visible on desktop sidebar) */
+    .side-only-hours {
+      display: block;
+      padding: 14px 16px;
+      background: var(--cream);
+      border-radius: var(--radius-sm);
+      font-family: 'DM Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 1.4px;
+      color: var(--grey);
+      text-transform: uppercase;
+      line-height: 1.9;
+    }
+    .side-only-hours strong { color: var(--black); font-weight: 500; }
+    .side-only-hours .open-stamp {
+      display: inline-block;
+      color: var(--pink);
+      font-family: 'Caveat', cursive;
+      font-size: 16px;
+      letter-spacing: 0;
+      text-transform: none;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    /* CTAs stack at the bottom of the sidebar */
+    .cta-group {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      padding-top: 18px;
+      border-top: 1px solid var(--light);
+    }
+    .cta-group .cta { justify-content: center; padding: 12px 16px; font-size: 11px; }
+    .cta-sidebar-only { display: inline-flex; }
+    .nav-toggle { display: none !important; }
+
+    /* filter bar pins to the top of the content area (no top bar above it) */
+    .filter-bar { top: 0; }
+
+    /* the hero shouldn't fight the sidebar for visual weight */
+    .hero { padding-top: 64px; }
+
+    /* hero meta column still right-aligned for desktop balance */
+    .hero-meta { text-align: right; }
+
+    /* back-to-top sits clear of the rail */
+    .to-top { right: 28px; bottom: 28px; }
+  }
+  @media (max-width: 720px) {
+    :root { --nav-h: 60px; --bar-h: 56px; }
+    .hero { padding: 48px 0 36px; }
+    .cta-group .cta-secondary { display: none; }
+    .search input { width: 180px; }
+    .menu-section { padding: 24px 0 4px; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 18px; }
+    .section-head .inline-note { margin-left: 0; }
+    .dish { padding: 16px 18px; }
+    .dish-name { font-size: 14px; }
+    .dish-price { font-size: 20px; }
+    .clasico { padding: 32px 22px; }
+    .clasico-price .num { font-size: 72px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .brand-logo { height: 26px; }
+    .hero-sticker { width: 108px; height: 108px; top: -12px; right: -8px; padding: 6px; border-radius: 12px; }
+    .section-banner { aspect-ratio: 16/9; }
+    .section-banner .banner-text { left: 20px; max-width: 80%; }
+  }
+
+  @media (max-width: 1100px) {
+    .hero-visual { max-width: 100%; aspect-ratio: 4/3; margin-top: 12px; }
+  }
+
+  /* mobile drawer */
+  .mobile-drawer {
+    display: none;
+    position: fixed;
+    inset: var(--nav-h) 0 0;
+    background: #fff;
+    z-index: 49;
+    padding: 24px;
+    overflow-y: auto;
+  }
+  .mobile-drawer.is-open { display: block; }
+  .mobile-drawer a {
+    display: block;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--light);
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+  .mobile-drawer .mobile-cta {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .mobile-drawer .mobile-cta .cta { justify-content: center; padding: 14px; font-size: 12px; }
+
+  /* print: degrade gracefully to the original feel */
+  @media print {
+    .site-header, .filter-bar, .to-top, .site-footer { display: none; }
+    body { background: #fff; }
+    .dish { break-inside: avoid; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== TOP NAVIGATION ============== -->
+<header class="site-header" id="top">
+  <div class="container nav-row">
+    <a href="#top" class="brand" aria-label="Súperchido — home">
+      <img src="assets/pomelli_bdna_image_0518-3.png" alt="SÚPERCHIDO" class="brand-logo">
+      <span class="brand-tag">come for the tacos.</span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Menu sections">
+      <a href="#entrees">Entrées</a>
+      <a href="#quesadillas">Quesadillas</a>
+      <a href="#tacos">Tacos</a>
+      <a href="#mains">Mains</a>
+      <a href="#sides">Sides</a>
+      <a href="#salsas">Salsas</a>
+      <a href="#sauces">Sauces</a>
+      <a href="#dessert">Dessert</a>
+      <a href="#kids">Kids</a>
+      <a href="#clasico">El Clásico</a>
+    </nav>
+
+    <div class="side-only-hours" aria-hidden="true">
+      <span class="open-stamp">¡hola!</span><br>
+      82 Charles St · Seddon<br>
+      <strong>Tue – Thu</strong> · 5:30 – 9pm<br>
+      <strong>Fri</strong> · 5:30 – 10pm<br>
+      <strong>Sat</strong> · 5 – 10pm<br>
+      <strong>Sun</strong> · 5 – 9pm
+    </div>
+
+    <div class="cta-group">
+      <a class="cta cta-ghost cta-sidebar-only" href="https://www.ubereats.com/" target="_blank" rel="noopener">Uber Eats</a>
+      <a class="cta cta-secondary" href="https://www.superchido.com.au/" target="_blank" rel="noopener">Pick Up</a>
+      <a class="cta cta-primary" href="https://www.superchido.com.au/" target="_blank" rel="noopener">Book a Table</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" id="navToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- mobile drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <a href="#entrees">Entrées</a>
+    <a href="#quesadillas">Quesadillas</a>
+    <a href="#tacos">Tacos</a>
+    <a href="#mains">Mains</a>
+    <a href="#sides">Sides</a>
+    <a href="#salsas">Salsas</a>
+    <a href="#sauces">Sauces</a>
+    <a href="#dessert">Dessert</a>
+    <a href="#kids">Kids</a>
+    <a href="#clasico">El Clásico</a>
+    <div class="mobile-cta">
+      <a class="cta cta-secondary" href="https://www.superchido.com.au/" target="_blank" rel="noopener">Pick Up Order</a>
+      <a class="cta cta-ghost" href="https://www.ubereats.com/" target="_blank" rel="noopener">Uber Eats</a>
+      <a class="cta cta-primary" href="https://www.superchido.com.au/" target="_blank" rel="noopener">Book a Table</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-kicker">la carta · 2026</span>
+      <h1>Súper<span class="accent">chido</span><br>menu</h1>
+      <p class="lede">Regional Mexican kitchen &amp; agave bar. Handmade tortillas, slow-cooked meats, real salsas — come for the tacos, stay for the vibes.</p>
+      <div class="hero-cta-row">
+        <a class="cta cta-primary" href="https://www.superchido.com.au/" target="_blank" rel="noopener">Book a Table</a>
+        <a class="cta cta-secondary" href="https://www.superchido.com.au/" target="_blank" rel="noopener">Pick Up Order</a>
+        <a class="cta cta-ghost" href="https://www.ubereats.com/" target="_blank" rel="noopener">Uber Eats</a>
+      </div>
+    </div>
+    <aside class="hero-visual" aria-hidden="false">
+      <div class="photo-frame">
+        <img src="assets/pomelli_bdna_image_0518-5.png" alt="A spread of súperchido dishes — tacos, salsas, guacamole, totopos and rice" class="hero-image" loading="eager">
+      </div>
+      <span class="hero-badge"><span class="dot"></span> 82 Charles Street · Seddon</span>
+      <a class="hero-sticker" href="#tacos" aria-label="Taco Tuesday — 2 tacos for $10">
+        <span class="pin" aria-hidden="true"></span>
+        <img src="assets/pomelli_bdna_image_0518-2.png" alt="Súperchido Taco Tuesday — 2 tacos for $10">
+      </a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============== FILTER / SEARCH BAR ============== -->
+<div class="filter-bar" id="filterBar">
+  <div class="container filter-row">
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" id="searchInput" placeholder="Search dishes…" autocomplete="off" aria-label="Search menu">
+    </div>
+
+    <div class="chips" role="group" aria-label="Filter by marker">
+      <button class="chip is-active" data-filter="all">All</button>
+      <button class="chip chip-pink" data-filter="crown">♛ Favourites</button>
+      <button class="chip chip-pink" data-filter="new">✦ New</button>
+      <button class="chip chip-pink" data-filter="diamond">◆ Chef's Selection</button>
+    </div>
+
+    <div class="chip-divider"></div>
+
+    <div class="chips" role="group" aria-label="Filter by diet">
+      <button class="chip" data-tag="V">Vegetarian</button>
+      <button class="chip" data-tag="VG">Vegan</button>
+      <button class="chip" data-tag="GF">Gluten-free</button>
+      <button class="chip" data-tag="DF">Dairy-free</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============== MAIN MENU ============== -->
+<main>
+  <div class="container">
+
+    <!-- ============ ENTRÉES ============ -->
+    <section id="entrees" class="menu-section" data-section-name="Entrées">
+      <header class="section-head">
+        <span class="es">para empezar</span>
+        <h2>Entrées</h2>
+      </header>
+      <div class="dish-grid">
+
+        <article class="dish" data-tags="VG,GF" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Guacamole de la Casa</h3>
+            <span class="dish-price">18</span>
+          </div>
+          <p class="dish-desc">Fresh avocado, lime, onion, chile verde, salsa macha. Served with totopos. Serves 2–3. Add side of house salsa +3.</p>
+          <div class="dish-foot">
+            <span class="tag">VG</span><span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="DF" data-markers="crown">
+          <div class="markers"><span class="marker marker-crown">favourite</span></div>
+          <div class="dish-top">
+            <h3 class="dish-name">Tostadas de Ceviche</h3>
+            <span class="dish-price">27</span>
+          </div>
+          <p class="dish-desc">Crispy tostadas topped with lime-cured kingfish, mayo secreto, pico de gallo. 2 pcs per serve.</p>
+          <div class="dish-foot">
+            <span class="tag">DF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="GF" data-markers="crown">
+          <div class="markers"><span class="marker marker-crown">favourite</span></div>
+          <div class="dish-top">
+            <h3 class="dish-name">Chilaquiles Divorciados</h3>
+            <span class="dish-price">24</span>
+          </div>
+          <p class="dish-desc">Traditional nachos in red &amp; green salsas, cheese, crema, onion, coriander. Choose chicken, beef, pork or mushroom.</p>
+          <div class="dish-foot">
+            <span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="V,VGO,GF" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Elote</h3>
+            <span class="dish-price">9.99</span>
+          </div>
+          <p class="dish-desc">Char-grilled corn cob, añejo cheese, house mayo, lime, house spice mix.</p>
+          <div class="dish-foot">
+            <span class="tag">V</span><span class="tag">VGO</span><span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="V,VGO" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Papas Fritas</h3>
+            <span class="dish-price">15</span>
+          </div>
+          <p class="dish-desc">Potato fries, house spice mix, cheese añejo. Serves 2.</p>
+          <div class="dish-foot">
+            <span class="tag">V</span><span class="tag">VGO</span>
+          </div>
+        </article>
+
+        <div class="empty-state">No <strong>Entrées</strong> match your filters.</div>
+      </div>
+    </section>
+
+    <!-- ============ QUESADILLAS ============ -->
+    <section id="quesadillas" class="menu-section" data-section-name="Quesadillas">
+      <header class="section-head">
+        <span class="es">8" flour tortilla</span>
+        <h2>Quesadillas</h2>
+      </header>
+      <div class="dish-grid">
+
+        <article class="dish" data-tags="" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Tinga Quesadilla</h3>
+            <span class="dish-price">21</span>
+          </div>
+          <p class="dish-desc">Pulled chicken thigh, roasted tomato-chile sauce, coriander-onion, oaxacan cheese. Served with salsa.</p>
+        </article>
+
+        <article class="dish" data-tags="" data-markers="crown">
+          <div class="markers"><span class="marker marker-crown">favourite</span></div>
+          <div class="dish-top">
+            <h3 class="dish-name">Chorizo Quesadilla</h3>
+            <span class="dish-price">21</span>
+          </div>
+          <p class="dish-desc">Bold &amp; flavourful, packed with authentic Mexican chorizo, melted cheese, fresh coriander, onion. Grilled to perfection.</p>
+        </article>
+
+        <article class="dish" data-tags="V" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Hongos Quesadilla</h3>
+            <span class="dish-price">20</span>
+          </div>
+          <p class="dish-desc">Grilled garlic mushrooms, coriander-onion, oaxacan cheese. Served with salsa.</p>
+          <div class="dish-foot">
+            <span class="tag">V</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="V" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Cauliflower Quesadilla</h3>
+            <span class="dish-price">20</span>
+          </div>
+          <p class="dish-desc">Deliciously smoky, filled with tender cauliflower marinated in rich adobo, melted cheese, coriander, onion. Grilled golden &amp; crispy.</p>
+          <div class="dish-foot">
+            <span class="tag">V</span>
+          </div>
+        </article>
+
+        <div class="empty-state">No <strong>Quesadillas</strong> match your filters.</div>
+      </div>
+    </section>
+
+    <!-- ============ TACOS ============ -->
+    <section id="tacos" class="menu-section" data-section-name="Tacos">
+      <div class="section-banner">
+        <img src="assets/pomelli_bdna_image_0518-4.png" alt="Crispy birria tacos served with consomé">
+        <div class="banner-text">
+          <span class="kicker">tacos y masa</span>
+          <h3>Handmade Tacos</h3>
+          <p>Slow-cooked meats, fresh tortillas, real salsas — 2 pcs per serve.</p>
+        </div>
+      </div>
+      <div class="dish-grid">
+
+        <article class="dish" data-tags="GF" data-markers="crown">
+          <div class="markers"><span class="marker marker-crown">favourite</span></div>
+          <div class="dish-top">
+            <h3 class="dish-name">Birria Tacos</h3>
+            <span class="dish-price">21</span>
+          </div>
+          <p class="dish-desc">Pan-grilled tacos, braised beef, cheese, onion, coriander, house salsa, consomé on the side. 2 pcs.</p>
+          <div class="dish-foot">
+            <span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="GF" data-markers="diamond">
+          <div class="markers"><span class="marker marker-diamond">chef's pick</span></div>
+          <div class="dish-top">
+            <h3 class="dish-name">Chicken Tinga</h3>
+            <span class="dish-price">19</span>
+          </div>
+          <p class="dish-desc">Chipotle-mayo, tomato-sauced chicken, cheese, corn tortilla. 2 pcs.</p>
+          <div class="dish-foot">
+            <span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="GF" data-markers="crown,new">
+          <div class="markers">
+            <span class="marker marker-crown">favourite</span>
+            <span class="marker marker-new">new</span>
+          </div>
+          <div class="dish-top">
+            <h3 class="dish-name">De Pollo Asado</h3>
+            <span class="dish-price">23</span>
+          </div>
+          <p class="dish-desc">Marinated grilled chicken topped with diced onion, fresh cilantro, honey chipotle. 2 pcs.</p>
+          <div class="dish-foot">
+            <span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="DF" data-markers="crown,diamond">
+          <div class="markers">
+            <span class="marker marker-crown">favourite</span>
+            <span class="marker marker-diamond">chef's pick</span>
+          </div>
+          <div class="dish-top">
+            <h3 class="dish-name">Pescado</h3>
+            <span class="dish-price">19</span>
+          </div>
+          <p class="dish-desc">Beer-battered barramundi, mayo, cabbage, pico de gallo, corn tortilla. 2 pcs.</p>
+          <div class="dish-foot">
+            <span class="tag">DF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="GF" data-markers="diamond">
+          <div class="markers"><span class="marker marker-diamond">chef's pick</span></div>
+          <div class="dish-top">
+            <h3 class="dish-name">Cochinita</h3>
+            <span class="dish-price">19</span>
+          </div>
+          <p class="dish-desc">Slow-cooked Yucatán-style pulled pork in citrus &amp; achiote, soft corn tortillas, pickled red onions. 2 pcs.</p>
+          <div class="dish-foot">
+            <span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="V,GF" data-markers="diamond">
+          <div class="markers"><span class="marker marker-diamond">chef's pick</span></div>
+          <div class="dish-top">
+            <h3 class="dish-name">Hongos de Pastor</h3>
+            <span class="dish-price">19</span>
+          </div>
+          <p class="dish-desc">Grilled mushrooms in pastor sauce, house salsa, onion, coriander, cheese añejo, corn tortilla. 2 pcs. Vegan option available.</p>
+          <div class="dish-foot">
+            <span class="tag">V</span><span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="GF" data-markers="new">
+          <div class="markers"><span class="marker marker-new">new</span></div>
+          <div class="dish-top">
+            <h3 class="dish-name">Al Pastor</h3>
+            <span class="dish-price">25</span>
+          </div>
+          <p class="dish-desc">Marinated &amp; grilled pork with salsa, coriander, onion, pineapple. 2 pcs.</p>
+          <div class="dish-foot">
+            <span class="tag">GF</span>
+          </div>
+        </article>
+
+        <div class="empty-state">No <strong>Tacos</strong> match your filters.</div>
+      </div>
+    </section>
+
+    <!-- ============ MAINS ============ -->
+    <section id="mains" class="menu-section" data-section-name="Mains">
+      <header class="section-head">
+        <span class="es">platos fuertes</span>
+        <h2>Mains</h2>
+      </header>
+      <div class="dish-grid">
+
+        <article class="dish" data-tags="GF" data-markers="crown,diamond">
+          <div class="markers">
+            <span class="marker marker-crown">favourite</span>
+            <span class="marker marker-diamond">chef's pick</span>
+          </div>
+          <div class="dish-top">
+            <h3 class="dish-name">Cochinita Pibil</h3>
+            <span class="dish-price">31</span>
+          </div>
+          <p class="dish-desc">Banana-leaf-wrapped Yucatecan slow-cooked pork. Served with salsa roja, 4 tortillas, lime and pickled onions.</p>
+          <div class="dish-foot">
+            <span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="GF" data-markers="diamond">
+          <div class="markers"><span class="marker marker-diamond">chef's pick</span></div>
+          <div class="dish-top">
+            <h3 class="dish-name">Enchiladas Suizas</h3>
+            <span class="dish-price">31</span>
+          </div>
+          <p class="dish-desc">Tortillas filled with chicken or mushroom, doused in house green sauce, coriander, onion, crema, grilled cheese.</p>
+          <div class="dish-foot">
+            <span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="GF" data-markers="diamond">
+          <div class="markers"><span class="marker marker-diamond">chef's pick</span></div>
+          <div class="dish-top">
+            <h3 class="dish-name">Birria de Res</h3>
+            <span class="dish-price">31</span>
+          </div>
+          <p class="dish-desc">Braised beef brisket, 12-hour beef consomé, coriander, onion. Served with salsa roja, 4 tortillas, lime. Extra chile on request.</p>
+          <div class="dish-foot">
+            <span class="tag">GF</span>
+          </div>
+        </article>
+
+        <div class="empty-state">No <strong>Mains</strong> match your filters.</div>
+      </div>
+    </section>
+
+    <!-- ============ SIDES ============ -->
+    <section id="sides" class="menu-section" data-section-name="Sides">
+      <header class="section-head">
+        <span class="es">extras</span>
+        <h2>Sides</h2>
+      </header>
+      <div class="dish-grid compact">
+
+        <article class="dish" data-tags="VG,GF" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Corn Tortilla</h3>
+            <span class="dish-price">2</span>
+          </div>
+          <div class="dish-foot">
+            <span class="tag">VG</span><span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="VG,GF" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Totopos</h3>
+            <span class="dish-price">6</span>
+          </div>
+          <p class="dish-desc">Freshly made corn chips.</p>
+          <div class="dish-foot">
+            <span class="tag">VG</span><span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="VG,GF" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Pico de Gallo</h3>
+            <span class="dish-price">3</span>
+          </div>
+          <p class="dish-desc">Fresh tomato salsa with onion, coriander, chilli &amp; lime.</p>
+          <div class="dish-foot">
+            <span class="tag">VG</span><span class="tag">GF</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Sour Cream</h3>
+            <span class="dish-price">3</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Guacamole</h3>
+            <span class="dish-price">9</span>
+          </div>
+        </article>
+
+        <div class="empty-state">No <strong>Sides</strong> match your filters.</div>
+      </div>
+    </section>
+
+    <!-- ============ SALSAS ============ -->
+    <section id="salsas" class="menu-section" data-section-name="Salsas">
+      <header class="section-head">
+        <span class="es">house made</span>
+        <h2>Salsas</h2>
+        <span class="inline-note">$3 each</span>
+      </header>
+      <div class="dish-grid compact">
+
+        <article class="dish" data-tags="" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Verde</h3>
+            <span class="dish-price muted">tangy tomatillo</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Tatemada</h3>
+            <span class="dish-price muted">smoky · medium</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Ají Naúraton</h3>
+            <span class="dish-price muted">intense heat</span>
+          </div>
+        </article>
+
+        <article class="dish" data-tags="" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Honey Chipotle</h3>
+            <span class="dish-price muted">smoky-sweet</span>
+          </div>
+        </article>
+
+        <div class="empty-state">No <strong>Salsas</strong> match your filters.</div>
+      </div>
+    </section>
+
+    <!-- ============ SAUCES ============ -->
+    <section id="sauces" class="menu-section" data-section-name="Sauces">
+      <header class="section-head">
+        <span class="es">house mayos</span>
+        <h2>Sauces</h2>
+        <span class="inline-note">$3 each</span>
+      </header>
+      <div class="pill-row">
+        <div class="pill">Mayonnaise</div>
+        <div class="pill">Toreado Spicy Mayo</div>
+        <div class="pill">Chipotle Mayo</div>
+      </div>
+    </section>
+
+    <!-- ============ DESSERT ============ -->
+    <section id="dessert" class="menu-section" data-section-name="Dessert">
+      <header class="section-head">
+        <span class="es">postre</span>
+        <h2>Dessert</h2>
+      </header>
+      <div class="dish-grid">
+
+        <article class="dish" data-tags="V" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Churros</h3>
+            <span class="dish-price">17</span>
+          </div>
+          <p class="dish-desc">Piloncillo-cinnamon churros, served with house-made caramel.</p>
+          <div class="dish-foot">
+            <span class="tag">V</span>
+          </div>
+        </article>
+
+        <div class="empty-state">No <strong>Dessert</strong> matches your filters.</div>
+      </div>
+    </section>
+
+    <!-- ============ KIDS ============ -->
+    <section id="kids" class="menu-section" data-section-name="Kids">
+      <header class="section-head">
+        <span class="es">para los niños</span>
+        <h2>Kids Meal</h2>
+      </header>
+      <div class="dish-grid">
+
+        <article class="dish" data-tags="" data-markers="">
+          <div class="dish-top">
+            <h3 class="dish-name">Kids Meal</h3>
+            <span class="dish-price">19</span>
+          </div>
+          <p class="dish-desc">Two cheese-filled corn tortillas, crispy papas fritas &amp; cheese, fresh guacamole &amp; pico, crunchy corn chips, ketchup. Perfectly portioned and delicious.</p>
+        </article>
+
+        <div class="empty-state">No <strong>Kids Meal</strong> matches your filters.</div>
+      </div>
+    </section>
+
+    <!-- ============ EL CLÁSICO ============ -->
+    <section id="clasico" class="menu-section" data-section-name="El Clásico">
+      <div class="clasico">
+        <div class="clasico-grid">
+          <div>
+            <span class="clasico-sub">para compartir</span>
+            <h2 class="clasico-title">El Clásico</h2>
+            <div class="clasico-strong">· 5 courses ·<br>all of súperchido's favourites</div>
+            <div class="clasico-includes">
+              <em>Guacamole</em> + House Salsa<br>
+              <em>Elote</em><br>
+              <em>Tostada de Ceviche</em><br>
+              <em>Seasonal Tacos</em> (2 per person)<br>
+              <em>Enchiladas Suizas</em>
+            </div>
+            <div class="clasico-rule">
+              <strong>How it works:</strong> Pick any taco marked
+              <span class="marker marker-diamond">chef's pick</span>
+              for your taco course. Pick any main marked
+              <span class="marker marker-diamond">chef's pick</span>
+              for your main course.
+            </div>
+          </div>
+          <div>
+            <div class="clasico-photo">
+              <img src="assets/pomelli_bdna_image_0518-4.png" alt="Birria tacos with consomé — part of the El Clásico spread">
+            </div>
+            <div class="clasico-price">
+              <div class="num">59</div>
+              <div class="pp">per person</div>
+              <div class="min">minimum 2 people</div>
+              <span class="tag-line">~ the best way to taste it all ~</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LEGEND ============ -->
+    <section class="legend-section" aria-label="Menu legend">
+      <h3>The Markers &amp; Dietary Notes</h3>
+      <div class="legend-grid">
+        <div class="legend-item"><span class="marker marker-crown">fav</span> Customer &amp; Staff Favourite</div>
+        <div class="legend-item"><span class="marker marker-new">new</span> New Dish</div>
+        <div class="legend-item"><span class="marker marker-diamond">pick</span> Chef's Selection (El Clásico)</div>
+        <div class="legend-item"><span class="tag">GF</span> Gluten-free</div>
+        <div class="legend-item"><span class="tag">V</span> Vegetarian</div>
+        <div class="legend-item"><span class="tag">VG</span> Vegan</div>
+        <div class="legend-item"><span class="tag">VGO</span> Vegan option</div>
+        <div class="legend-item"><span class="tag">DF</span> Dairy-free</div>
+      </div>
+      <div class="legend-fine">· 15% public holiday surcharge applies</div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="mark">SÚPERCHIDO</div>
+        <div class="tag">come for the tacos. stay for the vibes.</div>
+        <p style="font-family:'Inter',sans-serif; font-size:13.5px; color:#bbb; line-height:1.65; max-width:380px;">
+          Regional Mexican kitchen &amp; agave bar in the heart of Seddon. Handmade tortillas, slow-cooked meats, killer margaritas.
+        </p>
+        <p class="ack">"We acknowledge the Traditional Owners of the land, the Wurundjeri Woi Wurrung and Bunurong peoples of the Kulin Nation and pay our respect to their Elders, past, present and emerging."</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li>82 Charles Street</li>
+          <li>Seddon, VIC 3011</li>
+          <li style="margin-top:10px;"><a href="mailto:hola@superchido.com.au">hola@superchido.com.au</a></li>
+          <li><a href="https://www.instagram.com/_superchido" target="_blank" rel="noopener">@_superchido</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <ul>
+          <li><span class="strong-day">Mon</span> · Closed</li>
+          <li><span class="strong-day">Tue</span> · 5:30pm – 9pm</li>
+          <li><span class="strong-day">Wed</span> · 5:30pm – 9pm</li>
+          <li><span class="strong-day">Thu</span> · 5:30pm – 9pm</li>
+          <li><span class="strong-day">Fri</span> · 5:30pm – 10pm</li>
+          <li><span class="strong-day">Sat</span> · 5pm – 10pm</li>
+          <li><span class="strong-day">Sun</span> · 5pm – 9pm</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Order &amp; Book</h4>
+        <ul>
+          <li><a href="https://www.superchido.com.au/" target="_blank" rel="noopener">Book a Table</a></li>
+          <li><a href="https://www.superchido.com.au/" target="_blank" rel="noopener">Pick Up Order</a></li>
+          <li><a href="https://www.ubereats.com/" target="_blank" rel="noopener">Order on Uber Eats</a></li>
+          <li><a href="https://www.superchido.com.au/" target="_blank" rel="noopener">Functions &amp; Events</a></li>
+          <li><a href="https://www.superchido.com.au/" target="_blank" rel="noopener">Gift Vouchers</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© SÚPERCHIDO · La Carta 2026</span>
+      <span class="vivas">¡buen provecho!</span>
+      <span>15% public holiday surcharge</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============== BACK TO TOP ============== -->
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<script>
+(function() {
+  'use strict';
+
+  // ---------- mobile drawer ----------
+  const navToggle = document.getElementById('navToggle');
+  const drawer = document.getElementById('mobileDrawer');
+  if (navToggle && drawer) {
+    navToggle.addEventListener('click', () => {
+      const open = drawer.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(open));
+      drawer.setAttribute('aria-hidden', String(!open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    drawer.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        drawer.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // ---------- filters + search ----------
+  const dishes = Array.from(document.querySelectorAll('.dish'));
+  const searchInput = document.getElementById('searchInput');
+  const markerChips = Array.from(document.querySelectorAll('.chip[data-filter]'));
+  const tagChips = Array.from(document.querySelectorAll('.chip[data-tag]'));
+
+  const state = {
+    marker: 'all',
+    tags: new Set(),
+    q: ''
+  };
+
+  function applyFilters() {
+    const q = state.q.trim().toLowerCase();
+
+    dishes.forEach(dish => {
+      const name = (dish.querySelector('.dish-name')?.textContent || '').toLowerCase();
+      const desc = (dish.querySelector('.dish-desc')?.textContent || '').toLowerCase();
+      const tags = (dish.dataset.tags || '').split(',').filter(Boolean);
+      const markers = (dish.dataset.markers || '').split(',').filter(Boolean);
+
+      let visible = true;
+
+      if (state.marker !== 'all' && !markers.includes(state.marker)) visible = false;
+
+      if (visible && state.tags.size > 0) {
+        for (const t of state.tags) {
+          if (!tags.includes(t)) { visible = false; break; }
+        }
+      }
+
+      if (visible && q) {
+        if (!name.includes(q) && !desc.includes(q)) visible = false;
+      }
+
+      dish.classList.toggle('is-hidden', !visible);
+    });
+
+    document.querySelectorAll('.menu-section').forEach(section => {
+      const grid = section.querySelector('.dish-grid');
+      if (!grid) return;
+      const visibleDishes = grid.querySelectorAll('.dish:not(.is-hidden)');
+      const empty = grid.querySelector('.empty-state');
+      if (empty) empty.classList.toggle('is-visible', visibleDishes.length === 0);
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      state.q = e.target.value;
+      applyFilters();
+    });
+  }
+
+  markerChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const value = chip.dataset.filter;
+      markerChips.forEach(c => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      state.marker = value;
+      applyFilters();
+    });
+  });
+
+  tagChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const tag = chip.dataset.tag;
+      if (state.tags.has(tag)) {
+        state.tags.delete(tag);
+        chip.classList.remove('is-active');
+      } else {
+        state.tags.add(tag);
+        chip.classList.add('is-active');
+      }
+      applyFilters();
+    });
+  });
+
+  // ---------- scrollspy ----------
+  const navLinks = Array.from(document.querySelectorAll('.primary-nav a'));
+  const sections = navLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const linkMap = new Map();
+    navLinks.forEach(link => {
+      const id = link.getAttribute('href').replace('#','');
+      linkMap.set(id, link);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        const link = linkMap.get(id);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('is-active'));
+          link.classList.add('is-active');
+        }
+      });
+    }, {
+      rootMargin: '-30% 0px -60% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(s => observer.observe(s));
+  }
+
+  // ---------- back to top ----------
+  const toTop = document.getElementById('toTop');
+  if (toTop) {
+    window.addEventListener('scroll', () => {
+      toTop.classList.toggle('is-visible', window.scrollY > 600);
+    }, { passive: true });
+    toTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
