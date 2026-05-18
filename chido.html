@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#E91E63">
 <meta name="description" content="SÚPERCHIDO · La Carta 2026 — regional Mexican kitchen + agave bar in Seddon. Come for the tacos, stay for the vibes.">
 <title>SÚPERCHIDO — La Carta · Menu</title>
 
@@ -32,7 +33,13 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
+  *, *::before, *::after { min-width: 0; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
   html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + var(--bar-h) + 12px); }
   body {
     font-family: 'Inter', sans-serif;
@@ -41,8 +48,9 @@
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    width: 100%;
   }
-  img { max-width: 100%; display: block; }
+  img { max-width: 100%; display: block; height: auto; }
   a { color: inherit; text-decoration: none; }
   button { font: inherit; cursor: pointer; }
 
@@ -50,7 +58,9 @@
     width: 100%;
     max-width: 1240px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 clamp(16px, 3vw, 24px);
+    padding-left: max(clamp(16px, 3vw, 24px), env(safe-area-inset-left));
+    padding-right: max(clamp(16px, 3vw, 24px), env(safe-area-inset-right));
   }
 
   /* ===================== TOP NAV ===================== */
@@ -86,9 +96,9 @@
   }
   .brand-logo {
     display: block;
-    height: 32px;
+    height: clamp(20px, 4.5vw, 30px);
     width: auto;
-    max-width: 180px;
+    max-width: clamp(120px, 28vw, 180px);
     object-fit: contain;
     object-position: left center;
   }
@@ -208,12 +218,15 @@
   }
   .hero h1 {
     font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(48px, 8vw, 104px);
+    font-size: clamp(38px, 8vw, 104px);
     line-height: 0.92;
     letter-spacing: -2px;
     color: var(--black);
     margin: 0 0 18px;
     text-transform: uppercase;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
   }
   .hero h1 .accent { color: var(--pink); }
   .hero p.lede {
@@ -425,14 +438,29 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--light);
+    position: sticky;
   }
+  .filter-bar::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 1px;
+    width: 28px;
+    background: linear-gradient(to right, rgba(250,246,241,0) 0%, rgba(250,246,241,0.96) 80%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .15s ease;
+  }
+  .filter-bar.is-scrollable::after { opacity: 1; }
   .filter-row {
     display: flex;
     align-items: center;
     gap: 14px;
     height: var(--bar-h);
     overflow-x: auto;
+    overflow-y: hidden;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-right: 32px;
   }
   .filter-row::-webkit-scrollbar { display: none; }
 
@@ -477,7 +505,7 @@
     border: 1.5px solid var(--light);
     background: #fff;
     color: var(--black);
-    padding: 8px 12px;
+    padding: 9px 14px;
     border-radius: 999px;
     font-family: 'DM Mono', monospace;
     font-size: 10.5px;
@@ -486,6 +514,8 @@
     font-weight: 500;
     transition: all .15s ease;
     white-space: nowrap;
+    min-height: 36px;
+    touch-action: manipulation;
   }
   .chip:hover { border-color: var(--black); }
   .chip.is-active {
@@ -546,11 +576,11 @@
 
   .dish-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
     gap: 14px;
   }
   .dish-grid.compact {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
   }
 
   /* ===================== DISH CARD ===================== */
@@ -589,7 +619,9 @@
     line-height: 1.3;
     flex: 1;
     min-width: 0;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
   }
   .dish-price {
     font-family: 'Fraunces', serif;
@@ -978,8 +1010,8 @@
   /* ===================== BACK TO TOP ===================== */
   .to-top {
     position: fixed;
-    right: 22px;
-    bottom: 22px;
+    right: max(22px, env(safe-area-inset-right));
+    bottom: max(22px, env(safe-area-inset-bottom));
     width: 46px;
     height: 46px;
     border-radius: 50%;
@@ -1009,17 +1041,49 @@
   .side-only-hours { display: none; }
 
   /* ===================== RESPONSIVE ===================== */
+
+  /* ---------- TABLET & DOWN (≤1100px): horizontal top bar with hamburger ---------- */
   @media (max-width: 1100px) {
     .primary-nav { display: none; }
     .nav-toggle { display: inline-flex; }
     .hero-grid { grid-template-columns: 1fr; gap: 28px; }
     .hero-meta { text-align: left; }
     .clasico-grid { grid-template-columns: 1fr; gap: 28px; }
+    .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+    .footer-brand { grid-column: 1 / -1; }
+    .nav-row { gap: 12px; }
+    .brand-tag { display: none; }
+    .hero-visual {
+      max-width: 100%;
+      aspect-ratio: 16/10;
+      margin-top: 12px;
+      max-height: 60vh;
+    }
+    .hero-visual .photo-frame { aspect-ratio: 16/10; max-height: 60vh; }
+    .hero { padding: 64px 0 48px; }
+  }
+
+  /* ---------- SMALL TABLET / PHABLET (≤900px) ---------- */
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-brand { grid-column: 1 / -1; max-width: 560px; }
+    .section-banner { aspect-ratio: 18/7; }
+    .section-banner .banner-text { left: 24px; max-width: 70%; }
+    .section-head { gap: 12px; flex-wrap: wrap; }
+    .section-head .inline-note { margin-left: 0; }
+    .hero { padding: 48px 0 32px; }
+    .hero-visual { aspect-ratio: 4/3; }
+    .hero-visual .photo-frame { aspect-ratio: 4/3; }
+    .clasico { padding: 36px 28px; }
+    .clasico-photo { aspect-ratio: 16/10; }
+    .clasico-price .num { font-size: 80px; }
+    .filter-row { gap: 10px; }
+    .search input { width: 200px; }
   }
 
   /* ===================== DESKTOP — LEFT SIDEBAR LAYOUT ===================== */
   @media (min-width: 1101px) {
-    :root { --side-w: 248px; --bar-h: 64px; }
+    :root { --side-w: 232px; --bar-h: 64px; }
 
     body { padding-left: var(--side-w); }
     html { scroll-padding-top: calc(var(--bar-h) + 16px); }
@@ -1146,28 +1210,119 @@
     /* back-to-top sits clear of the rail */
     .to-top { right: 28px; bottom: 28px; }
   }
+
+  /* ---------- LARGE DESKTOP (≥1440px) ---------- */
+  @media (min-width: 1440px) {
+    :root { --side-w: 248px; }
+    .container { max-width: 1320px; }
+    .hero { padding: 88px 0 64px; }
+  }
+
+  /* ---------- ULTRA-WIDE (≥1920px) ---------- */
+  @media (min-width: 1920px) {
+    :root { --side-w: 268px; }
+    .container { max-width: 1440px; }
+  }
+  /* ---------- MOBILE (≤720px) ---------- */
   @media (max-width: 720px) {
-    :root { --nav-h: 60px; --bar-h: 56px; }
-    .hero { padding: 48px 0 36px; }
+    :root { --nav-h: 58px; --bar-h: 54px; }
+    .hero { padding: 36px 0 28px; }
     .cta-group .cta-secondary { display: none; }
-    .search input { width: 180px; }
+    .nav-row { gap: 8px; }
+    .search input { width: clamp(140px, 42vw, 200px); }
     .menu-section { padding: 24px 0 4px; }
-    .section-head { flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 18px; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 18px; padding-bottom: 12px; }
     .section-head .inline-note { margin-left: 0; }
+    .section-head h2 { font-size: clamp(26px, 7vw, 36px); }
     .dish { padding: 16px 18px; }
     .dish-name { font-size: 14px; }
     .dish-price { font-size: 20px; }
-    .clasico { padding: 32px 22px; }
-    .clasico-price .num { font-size: 72px; }
-    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-    .brand-logo { height: 26px; }
-    .hero-sticker { width: 108px; height: 108px; top: -12px; right: -8px; padding: 6px; border-radius: 12px; }
-    .section-banner { aspect-ratio: 16/9; }
-    .section-banner .banner-text { left: 20px; max-width: 80%; }
+    .dish-top { gap: 10px; }
+    .clasico { padding: 28px 20px; }
+    .clasico-photo { aspect-ratio: 16/10; }
+    .clasico-price { padding: 20px; }
+    .clasico-price .num { font-size: 64px; }
+    .clasico-rule { font-size: 12px; padding: 12px 14px; }
+    .clasico-includes { font-size: 14px; line-height: 1.7; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    .footer-brand { max-width: 100%; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    .hero-sticker { width: 96px; height: 96px; top: -10px; right: -6px; padding: 5px; border-radius: 10px; }
+    .hero-sticker .pin { width: 11px; height: 11px; top: -6px; }
+    .section-banner { aspect-ratio: 5/3; }
+    .section-banner .banner-text { left: 18px; right: 18px; max-width: none; }
+    .section-banner .banner-text p { display: none; }
+    .hero-badge { font-size: 9.5px; padding: 8px 12px; left: 14px; bottom: 14px; }
+    .hero-cta-row { gap: 8px; }
+    .hero-cta-row .cta { padding: 10px 14px; font-size: 10.5px; }
+    .legend-section { padding: 22px 20px; }
+    .pill { font-size: 13px; padding: 14px 16px; }
+    .menu .container > main { padding: 32px 0 60px; }
+    main { padding: 28px 0 56px; }
+    .to-top { right: 14px; bottom: 14px; width: 42px; height: 42px; }
   }
 
-  @media (max-width: 1100px) {
-    .hero-visual { max-width: 100%; aspect-ratio: 4/3; margin-top: 12px; }
+  /* ---------- SMALL MOBILE (≤480px) ---------- */
+  @media (max-width: 480px) {
+    :root { --nav-h: 54px; --bar-h: 52px; }
+    .container { padding: 0 14px; }
+    .nav-row { gap: 6px; }
+    .cta-group .cta-primary {
+      padding: 8px 11px;
+      font-size: 9.5px;
+      letter-spacing: 1px;
+    }
+    .nav-toggle { width: 38px; height: 38px; }
+    .search input { width: clamp(130px, 38vw, 170px); height: 36px; font-size: 12px; }
+    .chip { padding: 8px 11px; font-size: 10px; letter-spacing: 1.2px; min-height: 34px; }
+    .chip-divider { display: none; }
+    .filter-row { gap: 8px; }
+    .hero h1 { font-size: clamp(36px, 11vw, 56px); letter-spacing: -1.2px; }
+    .hero p.lede { font-size: 14px; }
+    .hero-kicker { font-size: 22px; }
+    .hero-cta-row .cta { width: 100%; justify-content: center; }
+    .hero-visual { aspect-ratio: 5/4; border-radius: 18px; }
+    .hero-visual .photo-frame { border-radius: 18px; aspect-ratio: 5/4; }
+    .hero-sticker {
+      width: 84px; height: 84px;
+      top: -8px; right: -4px;
+      padding: 4px;
+      border-radius: 8px;
+    }
+    .section-banner { aspect-ratio: 4/3; margin-bottom: 20px; }
+    .section-banner .banner-text .kicker { font-size: 16px; }
+    .section-banner .banner-text h3 { font-size: 22px; }
+    .section-head h2 { font-size: 24px; letter-spacing: -0.5px; }
+    .section-head .es { font-size: 18px; }
+    .dish-grid, .dish-grid.compact { gap: 10px; }
+    .dish { padding: 14px 14px; border-radius: 12px; }
+    .dish-name { font-size: 13.5px; }
+    .dish-desc { font-size: 12.5px; }
+    .dish-price { font-size: 18px; }
+    .dish-price::before { font-size: 11px; }
+    .clasico { padding: 22px 16px; border-radius: 14px; }
+    .clasico::before { font-size: 9px; letter-spacing: 2px; left: 14px; }
+    .clasico-title { font-size: 36px; }
+    .clasico-photo { aspect-ratio: 4/3; border-radius: 12px; }
+    .clasico-price .num { font-size: 56px; }
+    .clasico-price .num::before { font-size: 22px; }
+    .clasico-includes { font-size: 13px; }
+    .legend-grid { grid-template-columns: 1fr; gap: 8px; }
+    .legend-section { padding: 18px 16px; }
+    .site-footer { padding: 44px 0 24px; }
+    .footer-brand .mark { font-size: 26px; }
+    .mobile-drawer a { font-size: 18px; padding: 12px 0; }
+  }
+
+  /* ---------- TINY PHONES (≤360px, e.g. Galaxy Fold cover) ---------- */
+  @media (max-width: 360px) {
+    .container { padding: 0 12px; }
+    .cta-group .cta-primary { display: none; }
+    .hero h1 { font-size: 32px; letter-spacing: -1px; }
+    .hero-kicker { font-size: 20px; }
+    .clasico-title { font-size: 30px; }
+    .clasico-price .num { font-size: 48px; }
+    .hero-sticker { width: 72px; height: 72px; }
   }
 
   /* mobile drawer */
@@ -2020,6 +2175,28 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  // ---------- filter bar scroll-hint ----------
+  const filterBar = document.getElementById('filterBar');
+  const filterRow = filterBar ? filterBar.querySelector('.filter-row') : null;
+  if (filterBar && filterRow) {
+    const updateScrollHint = () => {
+      const overflow = filterRow.scrollWidth > filterRow.clientWidth + 2;
+      const atEnd = filterRow.scrollLeft >= (filterRow.scrollWidth - filterRow.clientWidth - 4);
+      filterBar.classList.toggle('is-scrollable', overflow && !atEnd);
+    };
+    updateScrollHint();
+    filterRow.addEventListener('scroll', updateScrollHint, { passive: true });
+    window.addEventListener('resize', updateScrollHint);
+  }
+
+  // ---------- mobile vh fix (avoids 100vh jump when address bar hides) ----------
+  const setVH = () => {
+    document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+  };
+  setVH();
+  window.addEventListener('resize', setVH);
+  window.addEventListener('orientationchange', setVH);
 })();
 </script>
 
