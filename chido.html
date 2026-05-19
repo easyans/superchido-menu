@@ -63,6 +63,224 @@
     padding-right: max(clamp(16px, 3vw, 24px), env(safe-area-inset-right));
   }
 
+  /* ===================== PRELOADER ===================== */
+  .preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .55s ease, visibility .55s ease;
+  }
+  .preloader.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .preloader-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+    text-align: center;
+    animation: pl-enter .8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .preloader-orbit {
+    position: relative;
+    width: clamp(140px, 32vw, 200px);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .preloader-disc {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff 0%, var(--pink-soft) 70%, #fff 100%);
+    box-shadow: 0 14px 40px rgba(233,30,99,0.18), inset 0 0 0 1px rgba(233,30,99,0.08);
+    animation: pl-breathe 2s ease-in-out infinite;
+  }
+  .preloader-logo {
+    position: relative;
+    z-index: 2;
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    animation: pl-wobble 3.2s ease-in-out infinite;
+    filter: drop-shadow(0 4px 12px rgba(233,30,99,0.35));
+  }
+  .preloader-ring {
+    position: absolute;
+    inset: -8px;
+    border: 2px solid transparent;
+    border-top-color: var(--pink);
+    border-right-color: var(--pink);
+    border-radius: 50%;
+    animation: pl-spin 1.6s cubic-bezier(0.5, 0.1, 0.5, 1) infinite;
+  }
+  .preloader-ring-2 {
+    inset: 8px;
+    border: 1.5px dashed rgba(233,30,99,0.35);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    animation: pl-spin 3.6s linear infinite reverse;
+  }
+  .preloader-confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--pink);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    margin: -4px 0 0 -4px;
+    transform-origin: 4px 4px;
+    animation: pl-orbit 1.8s linear infinite;
+    box-shadow: 0 0 0 3px rgba(233,30,99,0.18);
+  }
+  .preloader-confetti.c2 { animation-delay: -0.6s; background: var(--black); box-shadow: 0 0 0 3px rgba(0,0,0,0.12); }
+  .preloader-confetti.c3 { animation-delay: -1.2s; background: var(--pink-deep); box-shadow: 0 0 0 3px rgba(183,24,78,0.18); }
+
+  .preloader-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  .preloader-status {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 38px);
+    color: var(--pink);
+    line-height: 1;
+    transform: rotate(-2deg);
+  }
+  .preloader-subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: clamp(10px, 1.4vw, 11.5px);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--grey);
+    font-weight: 500;
+  }
+  .preloader-subtitle::after {
+    content: '';
+    display: inline-block;
+    width: 1ch;
+    text-align: left;
+    animation: pl-dots 1.4s steps(4) infinite;
+  }
+  .preloader-bar {
+    width: clamp(160px, 36vw, 220px);
+    height: 3px;
+    background: var(--light);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+  }
+  .preloader-bar-fill {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--pink) 0%, var(--pink-deep) 100%);
+    transform: translateX(-100%);
+    animation: pl-bar 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  /* "you're offline / reconnecting" variant */
+  .preloader.is-reconnecting .preloader-status { color: var(--black); }
+  .preloader.is-reconnecting .preloader-status::before {
+    content: '~ ';
+  }
+  .preloader.is-reconnecting .preloader-subtitle::before {
+    content: 'reconnecting';
+  }
+  .preloader.is-reconnecting .preloader-subtitle .default-label { display: none; }
+
+  @keyframes pl-enter {
+    0% { opacity: 0; transform: translateY(8px) scale(0.96); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes pl-spin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes pl-breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+  }
+  @keyframes pl-wobble {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.05) rotate(-2deg); }
+    50% { transform: scale(1.02) rotate(0deg); }
+    75% { transform: scale(1.05) rotate(2deg); }
+  }
+  @keyframes pl-orbit {
+    from { transform: rotate(0deg) translateX(calc(50% + 4px)) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(calc(50% + 4px)) rotate(-360deg); }
+  }
+  @keyframes pl-bar {
+    0%   { transform: translateX(-100%); }
+    50%  { transform: translateX(0%); }
+    100% { transform: translateX(100%); }
+  }
+  @keyframes pl-dots {
+    0%   { content: ''; }
+    25%  { content: '.'; }
+    50%  { content: '..'; }
+    75%  { content: '...'; }
+    100% { content: ''; }
+  }
+
+  /* network status banner (when offline-but-page-still-shown) */
+  .net-banner {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translate(-50%, 120%);
+    background: var(--black);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    z-index: 99998;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+    transition: transform .45s cubic-bezier(0.22, 1, 0.36, 1), background .25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+    bottom: max(24px, env(safe-area-inset-bottom));
+  }
+  .net-banner.is-visible { transform: translate(-50%, 0); }
+  .net-banner.is-online { background: var(--pink); }
+  .net-banner .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    animation: pl-breathe 1.4s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .preloader-logo,
+    .preloader-disc,
+    .preloader-ring,
+    .preloader-ring-2,
+    .preloader-confetti,
+    .preloader-bar-fill,
+    .preloader-subtitle::after,
+    .net-banner .dot { animation: none !important; }
+    .preloader-stage { animation: none !important; }
+  }
+
   /* ===================== TOP NAV ===================== */
   .site-header {
     position: sticky;
@@ -1365,6 +1583,32 @@
 </head>
 <body>
 
+<!-- ============== PRELOADER / RECONNECT OVERLAY ============== -->
+<div class="preloader" id="preloader" role="status" aria-live="polite" aria-label="Loading Súperchido menu">
+  <div class="preloader-stage">
+    <div class="preloader-orbit" aria-hidden="true">
+      <div class="preloader-disc"></div>
+      <span class="preloader-confetti c1"></span>
+      <span class="preloader-confetti c2"></span>
+      <span class="preloader-confetti c3"></span>
+      <span class="preloader-ring"></span>
+      <span class="preloader-ring preloader-ring-2"></span>
+      <img src="assets/pomelli_bdna_image_0518.png" alt="" class="preloader-logo" decoding="async">
+    </div>
+    <div class="preloader-text">
+      <span class="preloader-status">¡hola!</span>
+      <span class="preloader-subtitle"><span class="default-label">setting the table</span></span>
+    </div>
+    <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+  </div>
+</div>
+
+<!-- ============== NETWORK STATUS BANNER ============== -->
+<div class="net-banner" id="netBanner" role="status" aria-live="polite">
+  <span class="dot"></span>
+  <span class="net-banner-text">Reconnecting…</span>
+</div>
+
 <!-- ============== TOP NAVIGATION ============== -->
 <header class="site-header" id="top">
   <div class="container nav-row">
@@ -2197,6 +2441,72 @@
   setVH();
   window.addEventListener('resize', setVH);
   window.addEventListener('orientationchange', setVH);
+
+  // ---------- preloader + network reconnect ----------
+  const preloader = document.getElementById('preloader');
+  const netBanner = document.getElementById('netBanner');
+  const netBannerText = netBanner ? netBanner.querySelector('.net-banner-text') : null;
+  const MIN_PRELOADER_MS = 2200;
+  const pageStart = performance.now();
+  let wasOffline = !navigator.onLine;
+  let preloaderHidden = false;
+
+  const hidePreloader = () => {
+    if (!preloader || preloaderHidden) return;
+    const elapsed = performance.now() - pageStart;
+    const wait = Math.max(0, MIN_PRELOADER_MS - elapsed);
+    setTimeout(() => {
+      preloader.classList.add('is-hidden');
+      preloaderHidden = true;
+      document.body.style.overflow = '';
+    }, wait);
+  };
+
+  document.body.style.overflow = 'hidden';
+
+  if (document.readyState === 'complete') {
+    hidePreloader();
+  } else {
+    window.addEventListener('load', hidePreloader, { once: true });
+    setTimeout(hidePreloader, 6000);
+  }
+
+  const showNetBanner = (message, online) => {
+    if (!netBanner || !netBannerText) return;
+    netBannerText.textContent = message;
+    netBanner.classList.toggle('is-online', !!online);
+    netBanner.classList.add('is-visible');
+  };
+  const hideNetBanner = () => {
+    if (!netBanner) return;
+    netBanner.classList.remove('is-visible');
+  };
+
+  window.addEventListener('offline', () => {
+    wasOffline = true;
+    if (preloaderHidden) {
+      showNetBanner('You are offline · waiting…', false);
+    } else {
+      preloader && preloader.classList.add('is-reconnecting');
+    }
+  });
+
+  window.addEventListener('online', () => {
+    if (!wasOffline) return;
+    if (preloaderHidden) {
+      showNetBanner('Back online · refreshing…', true);
+      setTimeout(() => {
+        location.reload();
+      }, 700);
+    } else {
+      preloader && preloader.classList.remove('is-reconnecting');
+      wasOffline = false;
+    }
+  });
+
+  if (!navigator.onLine) {
+    preloader && preloader.classList.add('is-reconnecting');
+  }
 })();
 </script>
 
