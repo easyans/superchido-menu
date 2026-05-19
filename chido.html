@@ -102,8 +102,10 @@
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #fff 0%, var(--pink-soft) 70%, #fff 100%);
-    box-shadow: 0 14px 40px rgba(233,30,99,0.18), inset 0 0 0 1px rgba(233,30,99,0.08);
+    background:
+      radial-gradient(circle at 28% 26%, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 45%),
+      linear-gradient(135deg, #FFE4EE 0%, #FBC4D7 55%, #F4A2BE 100%);
+    box-shadow: 0 14px 40px rgba(233,30,99,0.22), inset 0 0 0 1px rgba(233,30,99,0.12);
     animation: pl-breathe 2s ease-in-out infinite;
   }
   .preloader-logo {
@@ -131,21 +133,6 @@
     border-right-color: transparent;
     animation: pl-spin 3.6s linear infinite reverse;
   }
-  .preloader-confetti {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: var(--pink);
-    border-radius: 50%;
-    top: 50%; left: 50%;
-    margin: -4px 0 0 -4px;
-    transform-origin: 4px 4px;
-    animation: pl-orbit 1.8s linear infinite;
-    box-shadow: 0 0 0 3px rgba(233,30,99,0.18);
-  }
-  .preloader-confetti.c2 { animation-delay: -0.6s; background: var(--black); box-shadow: 0 0 0 3px rgba(0,0,0,0.12); }
-  .preloader-confetti.c3 { animation-delay: -1.2s; background: var(--pink-deep); box-shadow: 0 0 0 3px rgba(183,24,78,0.18); }
-
   .preloader-text {
     display: flex;
     flex-direction: column;
@@ -218,10 +205,6 @@
     50% { transform: scale(1.02) rotate(0deg); }
     75% { transform: scale(1.05) rotate(2deg); }
   }
-  @keyframes pl-orbit {
-    from { transform: rotate(0deg) translateX(calc(50% + 4px)) rotate(0deg); }
-    to   { transform: rotate(360deg) translateX(calc(50% + 4px)) rotate(-360deg); }
-  }
   @keyframes pl-bar {
     0%   { transform: translateX(-100%); }
     50%  { transform: translateX(0%); }
@@ -274,7 +257,6 @@
     .preloader-disc,
     .preloader-ring,
     .preloader-ring-2,
-    .preloader-confetti,
     .preloader-bar-fill,
     .preloader-subtitle::after,
     .net-banner .dot { animation: none !important; }
@@ -1588,9 +1570,6 @@
   <div class="preloader-stage">
     <div class="preloader-orbit" aria-hidden="true">
       <div class="preloader-disc"></div>
-      <span class="preloader-confetti c1"></span>
-      <span class="preloader-confetti c2"></span>
-      <span class="preloader-confetti c3"></span>
       <span class="preloader-ring"></span>
       <span class="preloader-ring preloader-ring-2"></span>
       <img src="assets/pomelli_bdna_image_0518.png" alt="" class="preloader-logo" decoding="async">
